@@ -8,10 +8,11 @@ const server = http.createServer((req, res) => {
   res.end('Sky Signaling Server is Alive!\n');
 });
 
-// PeerServer ko sahi options ke sath initialize karein
+// Render proxy ke liye 'proxied: true' lagana zaroori hai
 const peerServer = PeerServer({
   server: server,
-  path: '/'
+  path: '/',
+  proxied: true
 });
 
 server.listen(port, () => {
