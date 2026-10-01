@@ -8,7 +8,11 @@ const server = http.createServer((req, res) => {
   res.end('Sky Signaling Server is Alive!\n');
 });
 
-const peerServer = PeerServer({ server, path: '/' });
+// PeerServer ko sahi options ke sath initialize karein
+const peerServer = PeerServer({
+  server: server,
+  path: '/'
+});
 
 server.listen(port, () => {
   console.log('Sky Signaling Server started on port ' + port);
